@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="Priyangshu Das — Computer Science undergraduate interested in space, technology, and innovation.">
+  <title>Priyangshu Das — Portfolio</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070b16;
+      --bg-2: #0b1327;
+      --panel: rgba(15, 25, 47, .72);
+      --panel-strong: rgba(17, 31, 58, .92);
+      --text: #f3f7ff;
+      --muted: #9eacc7;
+      --soft: #c9d5ea;
+      --blue: #4387ff;
+      --cyan: #5ee7ff;
+      --line: rgba(174, 200, 255, .16);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(ellipse at 3% 28%, rgba(20, 94, 230, .20), transparent 32rem),
+        radial-gradient(ellipse at 93% 57%, rgba(21, 139, 237, .12), transparent 34rem),
+        linear-gradient(145deg, #070b16, #08132a 55%, #060a14);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+      opacity: .32;
+      background-image: radial-gradient(1px 1px at 8% 18%, #cbeaff 98%, transparent),
+        radial-gradient(1px 1px at 21% 72%, #85baff 98%, transparent),
+        radial-gradient(1px 1px at 37% 31%, #fff 98%, transparent),
+        radial-gradient(1px 1px at 59% 11%, #a8d9ff 98%, transparent),
+        radial-gradient(1px 1px at 72% 65%, #fff 98%, transparent),
+        radial-gradient(1px 1px at 89% 37%, #8fbaff 98%, transparent),
+        radial-gradient(1px 1px at 94% 84%, #fff 98%, transparent);
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      border-bottom: 1px solid rgba(174, 200, 255, .09);
+      background: rgba(7, 11, 22, .76); backdrop-filter: blur(18px);
+    }
+    .nav-wrap { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 800; letter-spacing: -.035em; }
+    .brand-mark {
+      width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px;
+      color: #03101f; font-size: .85rem; letter-spacing: -.05em;
+      background: linear-gradient(140deg, var(--cyan), var(--blue)); box-shadow: 0 0 24px rgba(67, 135, 255, .25);
+    }
+    .brand-name { font-size: .92rem; }
+    .brand-name span { color: var(--cyan); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .2s ease; }
+    nav a:hover, nav a:focus-visible { color: var(--cyan); }
+    .nav-contact { border: 1px solid var(--line); border-radius: 999px; padding: 9px 15px; color: var(--text); }
+
+    .hero { min-height: 620px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; padding-top: 68px; padding-bottom: 82px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--cyan); text-transform: uppercase; letter-spacing: .17em; font-size: .7rem; font-weight: 800; margin: 0 0 24px; }
+    .eyebrow::before { content: ""; width: 25px; height: 1px; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    h1 { max-width: 720px; margin: 0; font-size: clamp(3rem, 5.2vw, 4.7rem); line-height: 1.02; letter-spacing: -.065em; font-weight: 780; }
+    h1 .highlight { display: block; margin-top: 5px; padding-bottom: 8px; color: transparent; background: linear-gradient(100deg, var(--cyan) 4%, #6298ff 67%, #9d80ff); -webkit-background-clip: text; background-clip: text; }
+    .hero-copy { max-width: 590px; margin: 24px 0 0; color: var(--muted); font-size: 1.05rem; }
+    .hero-copy strong { color: var(--soft); font-weight: 650; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 11px 17px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; font-size: .88rem; font-weight: 750; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-3px); border-color: rgba(94, 231, 255, .62); }
+    .btn-primary { color: #04101e; border: 0; background: linear-gradient(105deg, var(--cyan), #6c9cff); box-shadow: 0 10px 30px rgba(41, 139, 255, .2); }
+    .btn-primary:hover { box-shadow: 0 14px 36px rgba(41, 139, 255, .31); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 33px; color: #7f91b0; font-size: .78rem; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: #6fe5bf; box-shadow: 0 0 13px rgba(111,229,191,.65); }
+
+    .visual { position: relative; display: grid; place-items: center; min-height: 440px; isolation: isolate; }
+    .visual::before { content: ""; position: absolute; width: 310px; height: 310px; border-radius: 50%; background: rgba(24, 103, 255, .16); filter: blur(50px); z-index: -2; }
+    .orbit { position: absolute; width: min(100%, 410px); aspect-ratio: 1; border: 1px solid rgba(115, 177, 255, .21); border-radius: 50%; transform: rotate(-23deg); }
+    .orbit.orbit-two { width: 330px; transform: rotate(58deg) scaleY(.57); border-color: rgba(94, 231, 255, .37); }
+    .orbit.orbit-three { width: 270px; transform: rotate(-35deg) scaleY(.63); border-color: rgba(133, 146, 255, .23); }
+    .planet {
+      position: relative; display: grid; place-items: center; width: 174px; height: 174px; border-radius: 50%;
+      border: 1px solid rgba(181, 223, 255, .5);
+      background: radial-gradient(circle at 30% 25%, #2d85b9 0, #1553a5 28%, #10234c 63%, #070d1d 100%);
+      box-shadow: inset -20px -18px 34px rgba(1, 5, 17, .74), inset 10px 8px 22px rgba(114, 218, 255, .3), 0 0 65px rgba(42, 128, 255, .22);
+    }
+    .planet::before { content: ""; position: absolute; inset: 18px 26px 48px 20px; border-radius: 50%; border-top: 1px solid rgba(188, 237, 255, .35); transform: rotate(-30deg); }
+    .planet-initials { font-size: 2.2rem; font-weight: 850; letter-spacing: -.1em; text-shadow: 0 0 24px rgba(94, 231, 255, .65); }
+    .orbit-dot { position: absolute; top: 17%; right: 15%; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 22px var(--cyan); }
+    .orbit-dot.blue { top: auto; bottom: 17%; right: auto; left: 14%; width: 8px; height: 8px; background: #7296ff; box-shadow: 0 0 18px #7296ff; }
+    .float-card { position: absolute; display: flex; align-items: center; gap: 11px; padding: 12px 15px; border: 1px solid rgba(174, 200, 255, .2); border-radius: 14px; background: rgba(9, 17, 34, .82); backdrop-filter: blur(14px); box-shadow: 0 15px 38px rgba(0,0,0,.22); }
+    .float-card .symbol { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; color: var(--cyan); background: rgba(67,135,255,.13); font-size: 1.05rem; }
+    .float-card small { display: block; color: var(--muted); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
+    .float-card strong { display: block; font-size: .82rem; font-weight: 750; }
+    .card-top { top: 12%; left: 0; animation: drift 6s ease-in-out infinite; }
+    .card-bottom { right: -2%; bottom: 12%; animation: drift 7s ease-in-out -2s infinite; }
+    .visual-label { position: absolute; bottom: 2%; color: #7186a8; font-size: .67rem; letter-spacing: .22em; text-transform: uppercase; }
+    @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+    .section { padding: 52px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 25px; margin-bottom: 24px; }
+    .section-index { display: block; color: var(--cyan); font-size: .7rem; font-weight: 800; letter-spacing: .16em; margin-bottom: 6px; }
+    h2 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.15; letter-spacing: -.05em; }
+    .section-sub { max-width: 380px; color: var(--muted); margin: 0; font-size: .9rem; }
+    .panel { border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(135deg, rgba(17, 30, 57, .82), rgba(9, 17, 33, .78)); box-shadow: 0 20px 65px rgba(0,0,0,.13); }
+    .about-panel { display: grid; grid-template-columns: .7fr 1.3fr; gap: 32px; padding: 32px; }
+    .about-side { padding-right: 25px; border-right: 1px solid var(--line); }
+    .about-side .big-number { display: block; font-size: 3.5rem; line-height: 1; font-weight: 800; letter-spacing: -.08em; color: transparent; background: linear-gradient(130deg, #e8f5ff, #719eff); -webkit-background-clip: text; background-clip: text; }
+    .about-side p { color: var(--muted); font-size: .84rem; margin: 12px 0 0; }
+    .about-body p { color: var(--soft); margin: 0; font-size: 1rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .tag { padding: 7px 11px; border: 1px solid rgba(94, 231, 255, .18); border-radius: 999px; color: #b8d9f8; background: rgba(54, 120, 255, .08); font-size: .76rem; }
+
+    .interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+    .interest-card { min-height: 205px; padding: 24px; transition: transform .22s ease, border-color .22s ease, background .22s ease; overflow: hidden; position: relative; }
+    .interest-card::after { content: ""; position: absolute; width: 120px; height: 120px; right: -42px; bottom: -55px; border-radius: 50%; background: rgba(51, 125, 255, .13); filter: blur(18px); transition: opacity .2s ease; }
+    .interest-card:hover { transform: translateY(-5px); border-color: rgba(94, 231, 255, .38); background: linear-gradient(135deg, rgba(22, 42, 79, .91), rgba(9, 17, 33, .88)); }
+    .interest-icon { display: grid; place-items: center; width: 43px; height: 43px; border-radius: 13px; margin-bottom: 20px; border: 1px solid rgba(94, 231, 255, .2); color: var(--cyan); background: rgba(67, 135, 255, .11); font-size: 1.15rem; }
+    .interest-card h3 { margin: 0; font-size: 1.03rem; letter-spacing: -.02em; }
+    .interest-card p { margin: 9px 0 0; color: var(--muted); font-size: .86rem; }
+
+    .education-panel { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; padding: 27px 30px; }
+    .edu-icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 16px; color: var(--cyan); background: linear-gradient(145deg, rgba(94,231,255,.13), rgba(67,135,255,.15)); border: 1px solid rgba(94,231,255,.18); font-size: 1.35rem; }
+    .edu-title { font-size: 1.04rem; font-weight: 780; }
+    .edu-subtitle { color: var(--muted); font-size: .87rem; margin-top: 3px; }
+    .edu-date { white-space: nowrap; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--cyan); font-size: .79rem; }
+
+    .contact-panel { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 32px; overflow: hidden; position: relative; }
+    .contact-panel::after { content: ""; position: absolute; width: 290px; height: 290px; right: -115px; top: -150px; border-radius: 50%; border: 1px solid rgba(94,231,255,.12); box-shadow: 0 0 0 22px rgba(94,231,255,.025), 0 0 0 48px rgba(94,231,255,.02); pointer-events: none; }
+    .contact-panel h2 { max-width: 540px; }
+    .contact-panel p { margin: 12px 0 0; color: var(--muted); font-size: .9rem; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; z-index: 1; }
+    footer { margin-top: 28px; border-top: 1px solid var(--line); padding: 25px 0 34px; color: #72819d; font-size: .78rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .footer-link { text-decoration: none; color: var(--muted); }
+    .footer-link:hover { color: var(--cyan); }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    :focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; gap: 15px; padding-top: 75px; }
+      .hero-content { max-width: 700px; }
+      .visual { min-height: 390px; }
+      .interest-grid { grid-template-columns: 1fr 1fr; }
+      .interest-card:last-child { grid-column: span 2; }
+      .section-head { align-items: start; flex-direction: column; }
+      .section-sub { max-width: 600px; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(var(--max), calc(100% - 30px)); }
+      .nav-wrap { min-height: 68px; gap: 14px; }
+      nav { gap: 13px; }
+      nav a { font-size: .76rem; }
+      nav .nav-contact { padding: 7px 10px; }
+      .brand-name { font-size: .81rem; }
+      .hero { padding-top: 62px; padding-bottom: 42px; min-height: auto; }
+      h1 { font-size: clamp(2.55rem, 10.5vw, 3.65rem); }
+      .hero-copy { font-size: .96rem; }
+      .visual { min-height: 325px; }
+      .orbit { width: 290px; }
+      .orbit.orbit-two { width: 240px; }
+      .orbit.orbit-three { width: 205px; }
+      .planet { width: 137px; height: 137px; }
+      .card-top { left: -2%; top: 9%; }
+      .card-bottom { right: -2%; bottom: 9%; }
+      .float-card { padding: 9px 11px; }
+      .float-card .symbol { width: 29px; height: 29px; }
+      .float-card strong { font-size: .75rem; }
+      .float-card small { font-size: .58rem; }
+      .section { padding: 36px 0; }
+      .about-panel { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .about-side { border-right: 0; border-bottom: 1px solid var(--line); padding: 0 0 20px; }
+      .about-side .big-number { font-size: 2.7rem; }
+      .interest-grid { grid-template-columns: 1fr; }
+      .interest-card, .interest-card:last-child { grid-column: auto; min-height: auto; }
+      .education-panel { grid-template-columns: auto 1fr; gap: 14px; padding: 21px; }
+      .edu-date { grid-column: 2; justify-self: start; }
+      .contact-panel { padding: 24px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Priyangshu Das home">
+        <span class="brand-mark">PD.</span>
+        <span class="brand-name">PRIYANGSHU <span>DAS</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#interests">Interests</a>
+        <a href="#education">Education</a>
+        <a class="nav-contact" href="#contact">Let's connect ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero container">
+      <div class="hero-content">
+        <p class="eyebrow">Computer Science Undergraduate</p>
+        <h1>Hi, I'm<span class="highlight">Priyangshu Das.</span></h1>
+        <p class="hero-copy">A Computer Science undergraduate based in Guwahati, Assam, with a passion for <strong>space, technology, and innovation</strong>—and the ideas that connect them.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#about">Explore my world <span aria-hidden="true">↓</span></a>
+          <a class="btn" href="https://www.linkedin.com/in/priyangshu-das-933907380" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note"><span class="status-dot" aria-hidden="true"></span> Based in Guwahati, Assam, India</div>
+      </div>
+
+      <div class="visual" aria-label="Abstract orbital illustration representing space and technology" role="img">
+        <div class="orbit"><span class="orbit-dot"></span><span class="orbit-dot blue"></span></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+        <div class="planet"><span class="planet-initials">PD.</span></div>
+        <div class="float-card card-top"><span class="symbol" aria-hidden="true">✦</span><span><small>Always curious about</small><strong>Space & exploration</strong></span></div>
+        <div class="float-card card-bottom"><span class="symbol" aria-hidden="true">⌘</span><span><small>Studying</small><strong>Computer Science</strong></span></div>
+        <div class="visual-label">Space · Technology · Innovation</div>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="section-head reveal">
+        <div><span class="section-index">01 / THE PERSON</span><h2>A little about me.</h2></div>
+        <p class="section-sub">A starting point, not the whole story. This portfolio will grow as I learn and build.</p>
+      </div>
+      <div class="panel about-panel reveal">
+        <div class="about-side"><span class="big-number">Hello.</span><p>One mind, many questions—and a lot left to discover.</p></div>
+        <div class="about-body">
+          <p>I'm a Computer Science undergraduate with a strong interest in space, technology, and innovation. I enjoy exploring how new ideas and digital tools can shape the world around us. This is my corner of the web: a place to introduce myself and document my journey as it develops.</p>
+          <div class="tag-row" aria-label="Interests"><span class="tag">Space</span><span class="tag">Technology</span><span class="tag">Innovation</span><span class="tag">Computer Science</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="interests">
+      <div class="section-head reveal">
+        <div><span class="section-index">02 / WHAT PULLS ME IN</span><h2>Areas that spark my curiosity.</h2></div>
+        <p class="section-sub">The interests behind the questions I like to explore.</p>
+      </div>
+      <div class="interest-grid">
+        <article class="panel interest-card reveal">
+          <div class="interest-icon" aria-hidden="true">✧</div>
+          <h3>Space & exploration</h3>
+          <p>Looking beyond the familiar and staying curious about the universe and what lies ahead.</p>
+        </article>
+        <article class="panel interest-card reveal">
+          <div class="interest-icon" aria-hidden="true">⌘</div>
+          <h3>Technology</h3>
+          <p>Interested in the tools, systems, and ideas that influence how people live and work.</p>
+        </article>
+        <article class="panel interest-card reveal">
+          <div class="interest-icon" aria-hidden="true">↗</div>
+          <h3>Innovation</h3>
+          <p>Drawn to fresh perspectives and the process of turning thoughtful ideas into possibilities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="education">
+      <div class="section-head reveal">
+        <div><span class="section-index">03 / THE FOUNDATION</span><h2>Education.</h2></div>
+        <p class="section-sub">Where my Computer Science journey is taking shape.</p>
+      </div>
+      <div class="panel education-panel reveal">
+        <div class="edu-icon" aria-hidden="true">⌘</div>
+        <div>
+          <div class="edu-title">Assam Science and Technology University (ASTU)</div>
+          <div class="edu-subtitle">Bachelor of Technology (BTech) · Computer Science and Engineering</div>
+        </div>
+        <div class="edu-date">2025 — 2029</div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <div class="panel contact-panel reveal">
+        <div>
+          <span class="section-index">04 / SAY HELLO</span>
+          <h2>Good ideas start with a conversation.</h2>
+          <p>Have a question or want to connect? Reach out by email or find me on LinkedIn.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:priyangshudas101@gmail.com">Email me ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/priyangshu-das-933907380" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Priyangshu Das. Built with curiosity.</span>
+      <a class="footer-link" href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Keep the copyright year current.
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal sections as they enter the viewport. Content stays visible if this feature is unsupported.
+    const revealItems = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
